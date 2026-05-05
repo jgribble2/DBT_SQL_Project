@@ -12,3 +12,11 @@ SELECT
     qty AS quantity,
     rev AS revenue
 FROM source
+WHERE
+    order_id IS NOT NULL
+    AND customer_id IS NOT NULL
+    AND product_id IS NOT NULL
+    AND date_id IS NOT NULL
+    AND order_status = 'COMPLETE'
+    AND quantity IS NOT NULL
+    AND revenue IS NOT NULL
