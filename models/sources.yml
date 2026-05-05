@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: DEMO
+    schema: RAW
+    tables:
+      - name: orders
+      - name: customers
+      - name: products
+      - name: dates
