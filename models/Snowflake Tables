@@ -65,7 +65,7 @@ INSERT INTO DEMO.raw.customers (cust_id, cust_name, cust_region) VALUES
 (005, 'Home Depot', 'South'),
 (006, 'Lowes', 'East');
 
-SELECT * FROM DEMO.raw.orders;
+SELECT * FROM DEMO.raw.customers;
 
 
 INSERT INTO DEMO.raw.products (product_id, product_name, product_category) VALUES
@@ -75,7 +75,7 @@ INSERT INTO DEMO.raw.products (product_id, product_name, product_category) VALUE
 (004, 'Poly Bags', 'Plastic'),
 (005, 'Cardboard Boxes', 'Shipping');
 
-SELECT * FROM DEMO.raw.orders;
+SELECT * FROM DEMO.raw.products;
 
 
 INSERT INTO DEMO.raw.dates (date_id, date_year, date_month, date_day) VALUES
@@ -87,4 +87,4 @@ INSERT INTO DEMO.raw.dates (date_id, date_year, date_month, date_day) VALUES
 (20250106, 2025, 01, 06),
 (20250107, 2025, 01, 07);
 
-SELECT * FROM DEMO.raw.orders;
+SELECT * FROM DEMO.raw.dates;
