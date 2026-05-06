@@ -10,7 +10,12 @@ clean_orders AS (
         dt_id AS date_id,
         statsus AS order_status,
         qty AS quantity,
-        rev AS revenue
+        rev AS revenue,
+        CASE
+            WHEN rev >= 1000 THEN 'Large'
+            WHEN rev BETWEEN 500 AND 999 THEN 'Medium'
+            ELSE 'Small'
+        END AS order_size
     FROM source
     WHERE
         order_id IS NOT NULL
@@ -24,8 +29,13 @@ clean_orders AS (
 SELECT
     customer_id,
     COUNT(*) AS customer_orders,
-    SUM(revenue) AS customer_revenue
+    SUM(revenue) AS customer_revenue,
+    SUM(CASE WHEN order_size = 'Large' THEN 1 ELSE 0 END) AS large_orders,
+    SUM(CASE WHEN order_size = 'Medium' THEN 1 ELSE 0 END) AS medium_orders,
+    SUM(CASE WHEN order_size = 'Small' THEN 1 ELSE 0 END) AS small_orders
 FROM
     clean_orders
 GROUP BY
     customer_id
+ORDER BY
+    customer_revenue DESC
